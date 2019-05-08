@@ -1,0 +1,216 @@
+/*Este selector afecta a todos los elementos del documento HTML*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: white;
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-size: 25px;
+}
+
+h2::after {
+    display: block;
+    content: "";
+    width: 60px;
+    height: 3px;
+    margin-top: 5px;
+    background-color: orange;
+    position: absolute;
+}
+
+main section {
+    margin-top: 50px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: orange;
+}
+
+p {
+    color: gray;
+}
+
+::selection {
+    background-color: orange;
+    color: white;
+}
+
+
+/* CLASES GENERALES */
+
+.botonBlanco {
+    width: 125px;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+.botonNaranja {
+    width: 125px;
+    padding: 10px;
+    border: 2px solid orange;
+    border-radius: 5px;
+    color: orange;
+    text-align: center;
+}
+
+.botonNaranjaRelleno {
+    width: 125px;
+    padding: 10px;
+    background-color: orange;
+    border: 2px solid orange;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+.botonAzulRelleno {
+    width: 125px;
+    padding: 10px;
+    background-color: #102027;
+    border: 2px solid #102027;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+
+/* HEADER */
+
+header {
+    background: url("https://i.pinimg.com/originals/c4/d3/f0/c4d3f022d1b6912b237fb72f910ddfff.jpg");
+    background-size: auto 300px;
+    height: 300px;
+}
+
+#contenidoHeader {
+    width: 80%;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+#headerHello {
+    color: grey;
+}
+
+header h1 {
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#headerDescription {
+    font-size: 30px;
+    color: darkslategray;
+    padding-bottom: 25px;
+}
+
+header a {
+    padding: 10px;
+    border: 2px solid white;
+    color: white;
+}
+
+
+/* About Me */
+
+#aboutMe p {
+    padding-bottom: 25px;
+}
+
+#aboutMe a {
+    margin-right: 10px;
+}
+
+
+/* Services */
+
+#servicesDescription {
+    padding-bottom: 25px;
+}
+
+
+/* Latest Work */
+
+#latestWorkDescription {
+    padding-bottom: 20px;
+}
+
+#latestWorkExamples {
+    text-align: center;
+}
+
+#latestWorkExamples img {
+    padding: 5%;
+}
+
+
+/* Experiences */
+
+#experiencesExamples {
+    text-align: center;
+    margin: 25px;
+}
+
+#experiencesExamples article {
+    background-color: orange;
+    border: solid 1px gray;
+}
+
+#experiencesExamples article p {
+    color: white;
+}
+
+
+/* Contact */
+
+#contact {
+    margin: 0;
+    text-align: center;
+    background: url("https://stmed.net/sites/default/files/orange-wallpapers-25269-5792868.png");
+}
+
+#contactTitle {
+    padding-top: 20px;
+    color: #101f27;
+}
+
+#contactButton {
+    padding-bottom: 25px;
+}
+
+#contact h2::after {
+    height: 0px;
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+}
+
+footer p {
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
