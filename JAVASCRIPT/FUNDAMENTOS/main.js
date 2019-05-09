@@ -8,8 +8,7 @@
 
 // console.log("Edad: " + edad);
 
-// ===
-// Acceso a objetos ===
+// === Acceso a objetos ===
 
 //     var objeto = {
 //         nombre: "Carlos",
@@ -18,15 +17,13 @@
 
 // console.log(objeto.nombre)
 
-// ===
-// Arrays ===
+// === Arrays ===
 
 //     var arr = [1, 2, 3, 4, 5]
 
 // console.log(arr.length)
 
-// ===
-// Comillas en un String ===
+// === Comillas en un String ===
 
 //     var texto = "Esto es un \"String\" con comillas dentro"
 // var texto = 'Esto es un "String" con comillas dentro'
@@ -41,8 +38,7 @@
 
 // console.log(2 + 2)
 
-// ===
-// Casteo de Números rápido ===
+// === Casteo de Números rápido ===
 
 //     var numero = "4"
 
