@@ -5,16 +5,26 @@
     padding: 0;
     font-size: 1em;
     font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
 
 body {
     background-color: white;
+    color: gray;
+}
+
+main {
+    top: 0;
 }
 
 h2 {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-size: 25px;
+    color: #263238;
 }
+
+
+/* Barra inferior h2 */
 
 h2::after {
     display: block;
@@ -24,12 +34,6 @@ h2::after {
     margin-top: 5px;
     background-color: orange;
     position: absolute;
-}
-
-main section {
-    margin-top: 50px;
-    margin-left: 5%;
-    margin-right: 5%;
 }
 
 a {
@@ -42,175 +46,160 @@ a:hover {
     color: orange;
 }
 
-p {
-    color: gray;
-}
-
-::selection {
-    background-color: orange;
-    color: white;
+section:not(:first-child),
+section:nth-child(6) {
+    width: 65vw;
+    margin: 0 auto;
+    margin-top: 30px;
 }
 
 
 /* CLASES GENERALES */
 
+.textShort {
+    width: 70%;
+}
+
+.botonera {
+    display: flex;
+    padding-top: 2%;
+    text-align: center;
+}
+
+.botonera *:first-child {
+    margin-left: 0px;
+}
+
+.botonera * {
+    margin-left: 10px;
+}
+
 .botonBlanco {
-    width: 125px;
-    padding: 10px;
-    border: 2px solid white;
+    border: 1.5px solid white;
     border-radius: 5px;
+    padding: 7px;
     color: white;
     text-align: center;
 }
 
 .botonNaranja {
-    width: 125px;
-    padding: 10px;
-    border: 2px solid orange;
+    padding: 7px;
+    border: 1.5px solid orange;
     border-radius: 5px;
     color: orange;
     text-align: center;
 }
 
 .botonNaranjaRelleno {
-    width: 125px;
-    padding: 10px;
+    padding: 7px;
     background-color: orange;
-    border: 2px solid orange;
+    border: 1.5px solid orange;
     border-radius: 5px;
     color: white;
     text-align: center;
 }
 
 .botonAzulRelleno {
-    width: 125px;
-    padding: 10px;
+    padding: 7px;
     background-color: #102027;
-    border: 2px solid #102027;
+    border: 1.5px solid #102027;
     border-radius: 5px;
     color: white;
     text-align: center;
 }
 
 
-/* HEADER */
+/* === HEADER === */
+
+
+/* MENU BAR */
 
 header {
-    background: url("https://i.pinimg.com/originals/c4/d3/f0/c4d3f022d1b6912b237fb72f910ddfff.jpg");
-    background-size: auto 300px;
-    height: 300px;
-}
-
-#contenidoHeader {
-    width: 80%;
-    padding-top: 50px;
-    padding-left: 50px;
-}
-
-#headerHello {
-    color: grey;
-}
-
-header h1 {
-    color: white;
-    font-size: 50px;
-    font-weight: bold;
-}
-
-#headerDescription {
-    font-size: 30px;
-    color: darkslategray;
-    padding-bottom: 25px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 40px;
+    background-color: transparent;
 }
 
 header a {
-    padding: 10px;
-    border: 2px solid white;
-    color: white;
+    position: absolute;
+    right: 0;
 }
 
 
-/* About Me */
+/* === WHOIAM === */
 
-#aboutMe p {
-    padding-bottom: 25px;
+#whoIAm {
+    background: url("https://i.pinimg.com/originals/c4/d3/f0/c4d3f022d1b6912b237fb72f910ddfff.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 300px;
 }
 
-#aboutMe a {
-    margin-right: 10px;
+#whoIAmContent {
+    position: absolute;
+    background-color: transparent;
+    margin-top: 5%;
+    margin-left: 5%;
 }
 
-
-/* Services */
-
-#servicesDescription {
-    padding-bottom: 25px;
+#whoIAmContent * {
+    position: relative;
+    margin: 10px;
 }
 
-
-/* Latest Work */
-
-#latestWorkDescription {
-    padding-bottom: 20px;
+#whoIAmContentText :nth-child(1) {
+    font-size: 1.3em;
+    color: gainsboro;
 }
 
-#latestWorkExamples {
-    text-align: center;
+#whoIAmContentText :nth-child(2) {
+    font-size: 3em;
+    color: beige;
 }
 
-#latestWorkExamples img {
-    padding: 5%;
-}
-
-
-/* Experiences */
-
-#experiencesExamples {
-    text-align: center;
-    margin: 25px;
-}
-
-#experiencesExamples article {
-    background-color: orange;
-    border: solid 1px gray;
-}
-
-#experiencesExamples article p {
-    color: white;
+#whoIAmContentText :nth-child(3) {
+    font-size: 1.4em;
+    color: darkslategray;
 }
 
 
-/* Contact */
+/* === ABOUT ME === */
 
-#contact {
-    margin: 0;
-    text-align: center;
-    background: url("https://stmed.net/sites/default/files/orange-wallpapers-25269-5792868.png");
+#aboutMe {
+    display: flex;
 }
 
-#contactTitle {
-    padding-top: 20px;
-    color: #101f27;
+#aboutMeLeft {
+    position: relative;
 }
 
-#contactButton {
-    padding-bottom: 25px;
-}
-
-#contact h2::after {
-    height: 0px;
+#aboutMeRight {
+    position: relative;
+    padding-left: 30px;
 }
 
 
-/* Footer */
+/* === SERVICES === */
 
-footer {
-    text-align: center;
+#services div:nth-child(2) {
+    background-color: blue;
+    margin-top: 30px;
+    display: grid;
 }
 
-footer p {
-    padding-left: 250px;
-    padding-right: 250px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+#services div article {
+    background-color: red;
+    border-radius: 20px;
+}
+
+#services article:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#services article:nth-child(2) {
+    grid-column: 2;
+    grid-row: 2;
 }

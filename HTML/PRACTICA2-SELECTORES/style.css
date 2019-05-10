@@ -1,0 +1,26 @@
+/* De la clase my-div del primer hermano div todos los h2 
+
+.my-div+div h2 {
+    color: red;
+}
+
+#main-section div:nth-child(3) h2 {
+    color: blue;
+}
+
+
+/* P soy un parrafo */
+
+
+/*
+section p:nth-child(4) {
+    color: yellow;
+}*/
+
+section>p {
+    color: orange;
+}
+
+body section:first-child+p {
+    color: brown;
+}
