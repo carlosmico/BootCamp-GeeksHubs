@@ -33,6 +33,7 @@ h2 {
 h2::after {
     display: block;
     content: "";
+    margin-top: 10px;
     width: 70px;
     height: 3px;
     background-color: #ffb633;
