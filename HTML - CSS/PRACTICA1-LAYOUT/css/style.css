@@ -1,0 +1,439 @@
+/*Este selector afecta a todos los elementos del documento HTML*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    color: gray;
+}
+
+main {
+    top: 0;
+}
+
+main>* {
+    position: relative;
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-size: 1.6em;
+    color: #263238;
+}
+
+
+/* Barra inferior h2 */
+
+h2::after {
+    display: block;
+    content: "";
+    width: 70px;
+    height: 3px;
+    background-color: #ffb633;
+    position: absolute;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #ffb633;
+}
+
+section:not(:first-child) {
+    width: 65vw;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+
+/* CLASES GENERALES */
+
+.textShort {
+    width: 70%;
+}
+
+.botonera {
+    display: flex;
+    text-align: center;
+}
+
+.botonera *:first-child {
+    margin-left: 0px;
+}
+
+.botonera * {
+    margin-left: 10px;
+}
+
+.boton {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.botonBlanco {
+    border: 1.5px solid white;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+.botonNaranja {
+
+    border: 1.5px solid #ffb633;
+    border-radius: 5px;
+    color: #ffb633;
+    text-align: center;
+}
+
+.botonNaranjaRelleno {
+
+    background-color: #ffb633;
+    border: 1.5px solid #ffb633;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+.botonAzulRelleno {
+
+    background-color: #102027;
+    border: 1.5px solid #102027;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+
+/* === HEADER === */
+
+
+/* MENU BAR */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: 5vh;
+    background-color: transparent;
+}
+
+header a {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+}
+
+
+/* === WHOIAM === */
+
+#whoIAm {
+    background: url("../img/fondoMichael.png");
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+}
+
+#whoIAmContent {
+    position: absolute;
+    background-color: transparent;
+    width: 30%;
+    margin-top: 150px;
+    margin-left: 15vw;
+}
+
+#whoIAmContent * {
+    position: relative;
+    margin: 10px;
+}
+
+#whoIAmContentText :nth-child(1) {
+    font-size: 1.3em;
+    color: gray;
+}
+
+#whoIAmContentText :nth-child(2) {
+    font-size: 3em;
+    color: #ffb633;
+}
+
+#whoIAmContentText :nth-child(3) {
+    font-size: 1.4em;
+    color: darkslategray;
+}
+
+
+/* === ABOUT ME === */
+
+#aboutMe {
+    display: flex;
+}
+
+#aboutMeLeft {
+    position: relative;
+}
+
+#aboutMeRight {
+    position: relative;
+    padding-left: 0.5;
+}
+
+#aboutMe div:nth-child(2) {
+    margin-top: 2vh;
+}
+
+/* === SERVICES === */
+
+#services div:nth-child(2) {
+    margin-top: 30px;
+    display: grid;
+}
+
+#services div article {
+    background-color: red;
+    height: 30vh;
+    width: 35vw;
+
+    margin: 0.5vh;
+    border-radius: 20px;
+
+    padding: 30px;
+
+    color: whitesmoke;
+}
+
+#services div article * {
+    margin-top: 1vh;
+}
+
+#services article:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+
+    margin-left: 0;
+    margin-top: 0;
+
+    background-color: #39c4ff;
+}
+
+#services article:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+
+    margin-right: 0;
+    margin-top: 0;
+
+    background-color: #f9d14b;
+}
+
+#services article:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+
+    margin-left: 0;
+    margin-bottom: 0;
+
+    background-color: #e15cd3;
+}
+
+#services article:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+
+    margin-right: 0;
+    margin-bottom: 0;
+
+    background-color: #30cb89;
+}
+
+/* == EXPERIENCES EXAMPLES === */
+
+#experiencesExamples {
+    display: flex;
+    margin-top: 5vh;
+}
+
+#experiencesExamples article {
+    border: 1px solid lightgray;
+
+    padding: 3vh;
+}
+
+#experiencesExamples article:first-child {
+    border: 1px solid lightgray;
+    background-color: #ffb633;
+    color: #102027;
+}
+
+#experiencesExamples article * {
+    margin-bottom: 2vh;
+}
+
+.experienceHeader h3 {
+    color: #102027;
+}
+
+.experienceHeader p:not(:first-child) {
+    color: #102027;
+
+}
+
+/* === LATEST WORK === */
+
+#latestWorkButtons {
+    margin-top: 3vh;
+}
+
+
+#latestWorkButtons a:not(:first-child) {
+    margin-left: 1.5vh;
+}
+
+#latestWorkExamples {
+    display: grid;
+    position: relative;
+    margin-top: 2vh;
+}
+
+#latestWorkExamples img {
+    padding: 1vh;
+    height: 25vh;
+    width: 100%;
+}
+
+#latestWorkExamples img:nth-child(1) {
+    grid-row: 1;
+    grid-column: 1;
+
+    padding-left: 0;
+    padding-top: 0;
+}
+
+#latestWorkExamples img:nth-child(2) {
+    grid-row: 1;
+    grid-column: 2;
+
+    padding-top: 0;
+}
+
+#latestWorkExamples img:nth-child(3) {
+    grid-row: 1;
+    grid-column: 3;
+
+    padding-right: 0;
+    padding-top: 0;
+}
+
+#latestWorkExamples img:nth-child(4) {
+    grid-row: 2;
+    grid-column: 1;
+
+    padding-left: 0;
+}
+
+#latestWorkExamples img:nth-child(5) {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+#latestWorkExamples img:nth-child(6) {
+    grid-row: 2;
+    grid-column: 3;
+
+    padding-right: 0;
+}
+
+#latestWorkExamples img:nth-child(7) {
+    grid-row: 3;
+    grid-column: 1;
+
+    padding-left: 0;
+    padding-bottom: 0;
+}
+
+#latestWorkExamples img:nth-child(8) {
+    grid-row: 3;
+    grid-column: 2;
+
+    padding-bottom: 0;
+}
+
+#latestWorkExamples img:nth-child(9) {
+    grid-row: 3;
+    grid-column: 3;
+
+    padding-right: 0;
+    padding-bottom: 0;
+}
+
+/* === CONTACT  === */
+
+#contact {
+    background-image: url("../img/fondoContact.png");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 150px;
+
+    text-align: center;
+}
+
+#contactTitle {
+    padding-top: 20px;
+}
+
+#contactTitle h2::after {
+    display: block;
+    content: "";
+    width: 60px;
+    height: 3px;
+    margin: 0 auto;
+    background-color: #102027;
+}
+
+#contactButton * {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* === FOOTER === */
+
+footer {
+    width: 65vw;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+}
+
+footer>* {
+    margin-top: 5vh;
+}
+
+footer p:nth-child(1)::after {
+    content: "";
+    display: block;
+    background-color: lightgray;
+    margin-top: 30px;
+    height: 1px;
+    width: 100%;
+}
+
+footer:nth-child(3) {
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+}
