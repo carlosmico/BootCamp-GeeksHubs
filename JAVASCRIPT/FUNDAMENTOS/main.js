@@ -45,3 +45,10 @@
 // numero = +numero + 3
 
 // console.log(numero)
+
+// === Array.Prototype ===
+// let arr = ['Juan', 'Pedro', 'Pepe'];
+
+// arr.forEach(function(nombre) {
+//     console.log("Hola me llamo " + nombre);
+// });
