@@ -1,0 +1,27 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    align-items: center;
+    text-align: center;
+}
+
+.Counter {
+    top: 50vh;
+    right: 50vw;
+    left: 50vw;
+    bottom: 50vh;
+}
+
+.nightMode {
+    background-color: black;
+    color: white;
+}
+
+.dayMode {
+    background-color: white;
+    color: black;
+}

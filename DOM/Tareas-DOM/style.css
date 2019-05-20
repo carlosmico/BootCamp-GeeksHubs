@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    background-color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+header {
+    background-color: #0288d1;
+    height: 50px;
+    color: white;
+}
+
+header * {
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.1em;
+    margin: 0.5em;
+}
+
+.input {
+    all: unset;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #f1f1f1;
+    border-radius: 0.5em;
+    text-align: left;
+    background-color: white;
+}
+
+.inputFake {
+    all: unset;
+    margin: 10px;
+    text-align: left;
+    background-color: white;
+}
+
+
+/* === TASK === */
+
+.task {
+    all: unset;
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #ececec;
+    border-radius: 0.5em;
+    text-align: left;
+    background-color: white;
+}
+
+.task:hover {
+    transition: all ease-in-out 300ms;
+    border-radius: 1.4em;
+}
+
+.inputSubTask {
+    all: unset;
+    margin: 10px;
+    text-align: left;
+}
+
+.inputError::-webkit-input-placeholder {
+    color: red;
+}
+
+.taskList {
+    width: 50vw;
+    margin: 0 auto;
+}
+
+.taskCompleted {
+    all: unset;
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 0.5em;
+    text-align: left;
+    background-color: #66bb6a;
+}
+
+.taskUncompleted {
+    all: unset;
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 0.5em;
+    text-align: left;
+    background-color: red;
+}
+
+.buttoner {
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.buttoner * {
+    margin-left: 10px;
+}
+
+button {
+    all: unset;
+    border: 2px solid gray;
+    /* background-color: #f6f6f6; */
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.miembro-icon {
+    width: 35px;
+    height: 35px;
+}
+
+
+/* === Listas === */
+
+.tasksSection {
+    display: grid;
+}
+
+.tasksSection>div {
+    background-color: #f6f6f6;
+    border-radius: 1em;
+    margin: 10px;
+}
+
+.toDo {
+    grid-column-start: 1;
+}
+
+.done {
+    grid-column-start: 2;
+}

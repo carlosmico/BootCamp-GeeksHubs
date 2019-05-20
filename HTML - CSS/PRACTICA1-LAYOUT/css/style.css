@@ -28,6 +28,11 @@ h2 {
     color: #263238;
 }
 
+::selection {
+    background-color: #ffb633;
+    color: white;
+}
+
 
 /* Barra inferior h2 */
 
