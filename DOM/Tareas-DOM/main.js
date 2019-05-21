@@ -1,19 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Ya he cargado el DOM');
 
-    //Evento drop
-    let done = document.querySelector(".done");
-    done.setAttribute("ondragover", event => {
-        event.preventDefault();
-    });
-    done.setAttribute("drop", event => {
-        console.log(event);
-        event.preventDefault();
-        var data = event.dataTransfer.getData("text");
-        event.target.appendChild(document.getElementById(data));
-    });
-
-
     let input = document.querySelector('.input');
 
     input.addEventListener('keyup', event => {
@@ -21,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         input.classList.remove("inputError");
 
         if (event.keyCode === 13) {
-            let listaTareas = document.querySelector('.todo');
+            let listaTareas = document.querySelector('.todo :nth-child(2)');
 
             let nombreTarea = event.target.value;
 
@@ -32,9 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 input.placeholder = "The taskname can't be empty!";
             } else {
-                let tarea = createTask(nombreTarea);
+                let task = createTask(nombreTarea);
 
-                listaTareas.appendChild(tarea);
+                listaTareas.appendChild(task);
+
+                //Evento DRAG
+                if (task.parentElement.className === 'tasksList') {
+                    task.setAttribute("draggable", false);
+                    task.addEventListener("dragstart", event => {
+                        drag(event);
+                    })
+                }
 
                 event.target.value = "";
             }
@@ -43,14 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const createTask = (taskName) => {
-    let task = document.createElement("div");
+    const taskId = "task" + Math.random();
+
+    let task = document.createElement("a");
     task.classList.add('task');
+    task.setAttribute("id", taskId);
+    //task.setAttribute("href", `#${taskId}`);
 
     //Titulo de la tarea
     let title = document.createElement("h3");
     title.innerText = `${taskName}`;
     title.setAttribute("contentEditable", true);
-
 
     let taskNameTemp;
 
@@ -64,24 +62,34 @@ const createTask = (taskName) => {
         }
     });
 
+    title.addEventListener("keydown", event => {
+        if (event.keyCode === 13) {
+            event.target.blur();
+        }
+    });
+
     task.appendChild(title);
 
+    //Creamos el div botonera
     let buttoner = document.createElement("div");
     buttoner.classList.toggle("buttoner");
 
     //Asignacion de miembros
     task.addEventListener("dblclick", event => {
-        let miembro = document.createElement('img');
-        miembro.src = "./img/miembro.png";
+        //Si la clase del padre de la tarea es otra tarea no hacemos nada
+        if (event.target.parentNode.parentNode.parentNode.className !== 'subTasks') {
+            let miembro = document.createElement('img');
+            miembro.src = "./img/miembro.png";
 
-        miembro.classList.add("miembro-icon");
+            miembro.classList.add("miembro-icon");
 
-        console.log(typeof buttoner.childNodes[2]);
 
-        if (typeof buttoner.childNodes[2] === 'undefined') {
-            buttoner.appendChild(miembro);
-        } else {
-            buttoner.childNodes[2].remove();
+
+            if (typeof buttoner.childNodes[2] === 'undefined') {
+                buttoner.appendChild(miembro);
+            } else {
+                buttoner.childNodes[2].remove();
+            }
         }
     });
 
@@ -94,17 +102,25 @@ const createTask = (taskName) => {
         if (completeButton.innerText === "✔️") {
             completeButton.innerText = "❌"
 
-            console.log(event.target.parentNode.parentNode.parentNode);
+            //Si la clase del padre de la tarea es otra tarea la pintamos de verde sino a done
+            if (event.target.parentNode.parentNode.parentNode.className === 'subTasks') {
+                task.classList.toggle("taskCompleted");
+            } else {
+                let doing = document.querySelector('.done :nth-child(2)');
 
-            let doing = document.querySelector('.done');
-
-            doing.appendChild(task);
+                doing.appendChild(task);
+            }
         } else {
             completeButton.innerText = "✔️"
 
-            let doing = document.querySelector('.toDo');
+            //Si la clase del padre de la tarea es otra tarea la pintamos de verde sino a done
+            if (event.target.parentNode.parentNode.parentNode.className === 'subTasks') {
+                task.classList.toggle("taskCompleted");
+            } else {
+                let doing = document.querySelector('.toDo :nth-child(2)');
 
-            doing.appendChild(task);
+                doing.appendChild(task);
+            }
         }
     })
 
@@ -136,6 +152,9 @@ const createTask = (taskName) => {
 
     subTasks.appendChild(subInput);
 
+    //Reseteo draggable a los hijos de la task
+
+
     task.appendChild(subTasks);
     task.appendChild(buttoner);
 
@@ -146,6 +165,7 @@ const changeBackground = (picker) => {
     let color = picker.toRGBString();
 
     document.body.style.backgroundColor = color;
+    document.querySelector(".menuBar").style.backgroundColor = color;
 
     console.log(color);
 }
@@ -155,14 +175,25 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
+    if (ev.target.parentNode.className === "tasksList") {
+        ev.dataTransfer.setData("id", ev.target.id);
+    }
 }
 
 function drop(ev) {
-    ev.preventDefault();
-    console.log(document.getElementById(data));
-    var data = ev.dataTransfer.getData("text");
-    let objToDrop = document.getElementById(data);
-    ev.target.appendChild(objToDrop);
+    console.log(ev.dataTransfer);
 
+
+    //Comprobamos que target ha recibido el evento de drop
+    if (ev.target.className === "tasksList") {
+        ev.preventDefault();
+
+        var data = ev.dataTransfer.getData("id");
+
+        //Comprobamos si el id es !null por si es una subtarea
+        if (document.getElementById(data) !== null) {
+            let objToDrop = document.getElementById(data);
+            ev.target.appendChild(objToDrop);
+        }
+    }
 }
