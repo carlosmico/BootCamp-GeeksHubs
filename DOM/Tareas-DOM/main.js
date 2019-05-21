@@ -1,6 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Ya he cargado el DOM');
 
+    //Evento drop
+    let done = document.querySelector(".done");
+    done.setAttribute("ondragover", event => {
+        event.preventDefault();
+    });
+    done.setAttribute("drop", event => {
+        console.log(event);
+        event.preventDefault();
+        var data = event.dataTransfer.getData("text");
+        event.target.appendChild(document.getElementById(data));
+    });
+
+
     let input = document.querySelector('.input');
 
     input.addEventListener('keyup', event => {
@@ -19,7 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 input.placeholder = "The taskname can't be empty!";
             } else {
-                listaTareas.appendChild(creaTarea(nombreTarea));
+                let tarea = createTask(nombreTarea);
+
+                listaTareas.appendChild(tarea);
 
                 event.target.value = "";
             }
@@ -27,10 +42,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-const creaTarea = (nombreTarea) => {
+const createTask = (taskName) => {
     let task = document.createElement("div");
-    task.innerHTML = `<input name='taskName' class='inputFake' value='${nombreTarea}'/>`;
     task.classList.add('task');
+
+    //Titulo de la tarea
+    let title = document.createElement("h3");
+    title.innerText = `${taskName}`;
+    title.setAttribute("contentEditable", true);
+
+
+    let taskNameTemp;
+
+    title.addEventListener("focus", event => {
+        taskNameTemp = event.target.innerText;
+    });
+
+    title.addEventListener("blur", event => {
+        if (event.target.innerText === "") {
+            event.target.innerText = taskNameTemp;
+        }
+    });
+
+    task.appendChild(title);
 
     let buttoner = document.createElement("div");
     buttoner.classList.toggle("buttoner");
@@ -42,13 +76,13 @@ const creaTarea = (nombreTarea) => {
 
         miembro.classList.add("miembro-icon");
 
+        console.log(typeof buttoner.childNodes[2]);
+
         if (typeof buttoner.childNodes[2] === 'undefined') {
             buttoner.appendChild(miembro);
         } else {
             buttoner.childNodes[2].remove();
         }
-
-        //existeMiembro = !existeMiembro;
     });
 
     //Boton de completar
@@ -59,6 +93,8 @@ const creaTarea = (nombreTarea) => {
 
         if (completeButton.innerText === "✔️") {
             completeButton.innerText = "❌"
+
+            console.log(event.target.parentNode.parentNode.parentNode);
 
             let doing = document.querySelector('.done');
 
@@ -93,7 +129,7 @@ const creaTarea = (nombreTarea) => {
 
     subInput.addEventListener("keyup", event => {
         if (event.keyCode === 13) {
-            event.target.parentNode.appendChild(creaTarea(subInput.value));
+            event.target.parentNode.appendChild(createTask(subInput.value));
             subInput.value = "";
         }
     });
@@ -104,4 +140,29 @@ const creaTarea = (nombreTarea) => {
     task.appendChild(buttoner);
 
     return task;
+}
+
+const changeBackground = (picker) => {
+    let color = picker.toRGBString();
+
+    document.body.style.backgroundColor = color;
+
+    console.log(color);
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    console.log(document.getElementById(data));
+    var data = ev.dataTransfer.getData("text");
+    let objToDrop = document.getElementById(data);
+    ev.target.appendChild(objToDrop);
+
 }

@@ -24,6 +24,21 @@ header * {
     justify-content: center;
 }
 
+.menuBar {
+    position: relative;
+    height: 60px;
+}
+
+.menuBar>input {
+    position: absolute;
+    left: 0px;
+}
+
+.menuBar>button {
+    position: absolute;
+    right: 0px;
+}
+
 h1 {
     font-size: 1.5em;
 }
@@ -119,10 +134,20 @@ h2 {
 
 button {
     all: unset;
-    border: 2px solid gray;
+    border: 2px solid #f1f1f1;
     /* background-color: #f6f6f6; */
     border-radius: 20px;
     padding: 5px;
+}
+
+button.jscolor {
+    border: 2px solid #f1f1f1 !important;
+    color: white !important;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #f1f1f1;
+    border-radius: 0.5em;
+    background-color: #0288d1 !important;
 }
 
 .miembro-icon {
@@ -133,7 +158,15 @@ button {
 
 /* === Listas === */
 
+.dragSection {
+    position: relative;
+    min-height: 600px;
+    background-color: red;
+    cursor: move;
+}
+
 .tasksSection {
+    position: relative;
     display: grid;
 }
 
@@ -143,10 +176,10 @@ button {
     margin: 10px;
 }
 
-.toDo {
+.tasksSection div:nth-child(1) {
     grid-column-start: 1;
 }
 
-.done {
+.tasksSection div:nth-child(2) {
     grid-column-start: 2;
 }

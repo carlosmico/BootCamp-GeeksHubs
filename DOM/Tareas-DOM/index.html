@@ -4,42 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tareas DOM</title>
+    <title>TodoToDone</title>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
     <script src="./main.js"></script>
+    <script src="./jscolor/jscolor.js"></script>
 </head>
 
 <body>
     <header>
         <div>
-            <h1>Trello by CM</h1>
+            <h1>TodoToDone</h1>
         </div>
     </header>
 
     <main>
         <div class="menuBar">
             <input type="text" class="input" name="inputTaskName" placeholder="Add task..." />
+
+            <button class="jscolor {valueElement:null,value:'fff',onFineChange:'changeBackground(this)'}" style="border:2px solid black">
+            Background
+            </button>
         </div>
 
         <div class="tasksSection">
-            <div class="toDo">
-                <div>
-                    <h2>To Do</h2>
-                </div>
+            <div class="dragSection" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div id="toDoSection" class="toDo" draggable="true" ondragstart="drag(event)">
+                    <div>
+                        <h2>To Do</h2>
+                    </div>
 
-                <div>
+                    <div>
 
+                    </div>
                 </div>
             </div>
 
-            <div class="done">
-                <div>
-                    <h2>Done</h2>
-                </div>
+            <div class="dragSection" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div id="doneSection" class="done" draggable="true" ondragstart="drag(event)">
+                    <div>
+                        <h2>Done</h2>
+                    </div>
 
-                <div>
+                    <div>
 
+                    </div>
                 </div>
             </div>
         </div>
