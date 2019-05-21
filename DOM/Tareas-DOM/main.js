@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const createTask = (taskName) => {
     const taskId = "task" + Math.random();
 
-    let task = document.createElement("a");
+    let task = document.createElement("div");
     task.classList.add('task');
     task.setAttribute("id", taskId);
     //task.setAttribute("href", `#${taskId}`);
